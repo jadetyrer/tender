@@ -1,0 +1,8 @@
+<h1><%= @event.name %></h1>
+<h2>Location: <%= @event.location %></h2>
+<p>Website: www.<%= @event.name.downcase.delete(' ') %>.com.au<p>
+<p>Conatct email: <%= @event.contact_email %></p>
+<p>Event info: <%= @event.description %></p>
+
+<%= link_to "Back", events_path %>
+
