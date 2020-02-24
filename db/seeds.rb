@@ -4,7 +4,7 @@
     location: Faker::Address.city,
     contact_email: Faker::Internet.email,
     external_link: Faker::Internet.domain_name,
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraph,
 )
 end 
 

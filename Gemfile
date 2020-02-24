@@ -58,3 +58,5 @@ gem 'faker'
 
 # User authentication
 gem 'devise'
+
+gem "aws-sdk-s3", "~> 1.60"

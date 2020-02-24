@@ -17,6 +17,14 @@
     <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
+  <div class='field'>
+    <%= form.label :date_from %>
+    <%= form.date_field :date_from %>
+  </div>
+  <div class='field'>
+    <%= form.label :date_to %>
+    <%= form.date_field :date_to %>
+  </div>
   <div class="field">
     <%= form.label :external_link %>
     <%= form.text_field :external_link %>
@@ -29,6 +37,10 @@
    <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+  <div>
+  <%= form.label :picture %> <%= form.file_field :picture, accept:
+  'image/png,image/gif,image/jpeg,image/jpg' %>
   </div>
   <div class="actions">
     <%= form.submit %>

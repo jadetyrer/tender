@@ -6,6 +6,8 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :external_link
       t.string :contact_email
       t.text :description
+      t.date :date_from
+      t.date :date_to
 
       t.timestamps
     end
