@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ @import "photos";
+ @import "forms";
+ @import "show";
+ 
+
+ body {
+  font-family: 'Montserrat';
+   background: ghostwhite;
+ }

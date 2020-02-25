@@ -60,3 +60,5 @@ gem 'faker'
 gem 'devise'
 
 gem "aws-sdk-s3", "~> 1.60"
+
+gem 'bootstrap', '~> 4.4.1'

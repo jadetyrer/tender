@@ -7,5 +7,14 @@
 <p>Date/s: <%= @event.date_from %> - <%= @event.date_to %></p>
 <p>Event creator: <%= @event.user.email %></p>
 
-<%= link_to "Back", events_path %>
+<h2>Positions</h2>
+<p>
+  <%= render @event.positions %>
+</p>
+
+<%= link_to 'Add a new position', new_event_position_path(@event) %>
+ 
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
 

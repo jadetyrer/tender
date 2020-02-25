@@ -1,0 +1,22 @@
+<h2>Add a position:</h2>
+<%= form_with(model: [ @event, @event.positions.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :position_type %><br>
+    <%= form.text_field :position_type %>
+  </p>
+  <p>
+    <%= form.label :rate %><br>
+    <%= form.text_field :rate %>
+  </p>
+  <p>
+    <%= form.label :hours %><br>
+    <%= form.text_field :hours %>
+  </p>
+  <p>
+    <%= form.label :requirements %><br>
+    <%= form.text_area :requirements %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
