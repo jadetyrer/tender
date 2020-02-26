@@ -1,0 +1,2 @@
+module WorkerProfilesHelper
+end

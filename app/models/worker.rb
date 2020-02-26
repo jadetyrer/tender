@@ -4,4 +4,5 @@ class Worker < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :applications
+  has_one :worker_profile
 end

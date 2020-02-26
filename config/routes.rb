@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :workers
+  devise_for :workers do
+    resources :worker_profiles
+  end 
   devise_for :users
   resources :events do
     resources :positions 
@@ -9,4 +11,4 @@ Rails.application.routes.draw do
 end 
 
 
-## Add application?
+## Add applications?
