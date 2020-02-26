@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     resources :positions 
   end 
 
-  root to: 'events#index'
+  root to: 'events#homepage'
 end 
+
+
+## Add application?
