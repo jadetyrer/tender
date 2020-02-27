@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_action :find_event
   def index 
   end 
 
@@ -6,7 +7,6 @@ class PositionsController < ApplicationController
   end 
 
   def create
-    @event = Event.find(params[:event_id])
     @position = @event.positions.create(position_params)
     redirect_to event_path(@event)
   end
@@ -27,4 +27,8 @@ class PositionsController < ApplicationController
     def position_params
       params.require(:position).permit(:position_type, :hours, :rate, :requirements)
     end
+
+    def find_event 
+      @event = Event.find(params[:event_id])
+    end 
 end

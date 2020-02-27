@@ -3,11 +3,17 @@
 <% if user_signed_in? %>
   Welcome: <%= current_user.email %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <div>Browse Events</div>
+  <div>Dashboard</div>
 <% elsif worker_signed_in? %> 
   Welcome: <%= current_worker.email %>
   <%= link_to 'Sign out', destroy_worker_session_path, method: :delete %>
+  <div>Browse Events</div>
+  <div>Dashboard</div>
 <% else %>
   <%= link_to 'Sign in as user', new_user_session_path %>
   <%= link_to 'Sign in as worker', new_worker_session_path %>
 <% end %>
+
+
 

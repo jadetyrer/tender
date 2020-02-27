@@ -1,0 +1,31 @@
+<h1>Setup your profile</h1>
+<%= form_with(model: [ current_worker, @worker_profile], url: worker_profiles_path, local: true) do |form| %>
+   
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div class='field'>
+    <%= form.label :bio %>
+    <%= form.text_area :bio %>
+  </div>
+  <div>
+  <%= form.label :photo %> <%= form.file_field :photo, accept:
+  'image/png,image/gif,image/jpeg,image/jpg' %>
+  </div>
+   <div>
+  <%= form.label :documents %> <%= form.file_field :documents, accept:
+  'doc/pdf', multiple: true %>
+  </div>
+   <div>
+  <%= form.label :resume %> <%= form.file_field :resume, accept:
+  'resume/pdf' %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
