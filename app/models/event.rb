@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
   has_one_attached :picture
   belongs_to :user
-  has_many :positions
-  has_many :applications, through: :positions
+  has_many :positions, dependent: :destroy
+  has_many :applications, through: :positions, dependent: :destroy
 
   def pending_applications
     applications.where(status: "pending")

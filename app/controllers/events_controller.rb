@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
 
-    redirect_to events_path
+    redirect_to user_dashboard_path
   end 
 
   # def set_user_event

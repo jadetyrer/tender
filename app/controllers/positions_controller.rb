@@ -19,9 +19,10 @@ class PositionsController < ApplicationController
   end 
 
   def destroy
-    @event.destroy
+    @position = @event.positions.find(params[:id])
+    @position.destroy
 
-    redirect_to events_path
+    redirect_to user_dashboard_path
   end 
 
   def apply 
@@ -32,7 +33,7 @@ class PositionsController < ApplicationController
       position: @position
     )
 
-    redirect_to @event
+    redirect_to worker_dashboard_path
   end
 
   def accept
@@ -51,6 +52,13 @@ class PositionsController < ApplicationController
     )
 
     redirect_to user_dashboard_path
+  end
+
+  def cancel
+    @application = @event.applications.find(params[:id])
+    @application.destroy()
+
+    redirect_to worker_dashboard_path
   end
 
 

@@ -25,31 +25,34 @@
 <h1>Applications</h1>
 <h2>Pending</h2>
 <% current_worker.applications.each do |application| %>
-<% if application.status == "pending" %>
-<p>Event: <%= application.position.event.name %>
-<p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-<p>Position: <%= application.position. position_type %></p>
-<p>Application status: <%= application.status %></p>
-<% end %>
+  <% if application.status == "pending" %>
+    <p>Event: <%= application.position.event.name %>
+    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
+    <p>Position: <%= application.position. position_type %></p>
+    <p>Application status: <%= application.status %></p>
+    <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your application?' } %>
+  <% end %>
 <% end %>
 
 <h2>Accepted</h2>
 <% current_worker.applications.each do |application| %>
-<% if application.status == "accepted" %>
-<p>Event: <%= application.position.event.name %>
-<p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-<p>Position: <%= application.position. position_type %></p>
-<p>Application status: <%= application.status %></p>
-<% end %>
+  <% if application.status == "accepted" %>
+    <p>Event: <%= application.position.event.name %>
+    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
+    <p>Position: <%= application.position. position_type %></p>
+    <p>Application status: <%= application.status %></p>
+  <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your accepted position?' } %>
+  <% end %>
 <% end %>
 
 
 <h2>Rejected</h2>
 <% current_worker.applications.each do |application| %>
-<% if application.status == "rejected" %>
-<p>Event: <%= application.position.event.name %>
-<p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-<p>Position: <%= application.position. position_type %></p>
-<p>Application status: <%= application.status %></p>
-<% end %>
+  <% if application.status == "rejected" %>
+    <p>Event: <%= application.position.event.name %>
+    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
+    <p>Position: <%= application.position. position_type %></p>
+    <p>Application status: <%= application.status %></p>
+    <%= button_to 'Delete', cancel_event_position_path(application.position.event, application), method: :delete %>
+  <% end %>
 <% end %>

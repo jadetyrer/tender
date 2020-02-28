@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         post :apply
         patch :accept
         patch :reject
+        delete :cancel
       end 
     end 
   end
