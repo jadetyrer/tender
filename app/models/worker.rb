@@ -6,3 +6,6 @@ class Worker < ApplicationRecord
   has_many :applications
   has_one :worker_profile
 end
+
+
+
