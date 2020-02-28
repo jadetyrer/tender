@@ -1,6 +1,6 @@
 <% if current_worker.worker_profile %>
   <h1>Hello, <%= current_worker.worker_profile.first_name %></h1>
-<% else %>
+<% elsif %>
   <%= render "worker_profiles/form" %>
 <% end %>
 
@@ -20,3 +20,13 @@
 <%= link_to 'Download Document', download_document_path %> 
 </p>
 <%= link_to 'Edit Profile', edit_worker_profile_path(current_worker.worker_profile) %>
+
+
+<h1>Applications</h1>
+<h2>Processing</h2>
+
+
+<h2>Accepted</h2>
+
+
+<h2>Rejected</h2>

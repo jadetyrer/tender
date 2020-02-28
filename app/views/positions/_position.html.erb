@@ -1,18 +1,20 @@
-<% @event.positions.each do |position| %>
-  <p>
-    <b>Position:</b>
-    <%= position.position_type %>
-  </p>
-  <p>
-    <b>Hours:</b>
-    <%= position.hours %>
-  </p>
-  <p>
-    <b>Rate:</b>
-    £<%= position.rate %>
-  </p>
-  <p>
-    <b>Requirements:</b>
-    <%= position.requirements %>
-  </p>
+<p>
+  <b>Position:</b>
+  <%= position.position_type %>
+</p>
+<p>
+  <b>Hours:</b>
+  <%= position.hours %>
+</p>
+<p>
+  <b>Rate:</b>
+  £<%= position.rate %>
+</p>
+<p>
+  <b>Requirements:</b>
+  <%= position.requirements %>
+</p>
+
+<% if worker_session %>
+  <%= button_to 'Apply', apply_event_position_path(@event, position) %>
 <% end %>

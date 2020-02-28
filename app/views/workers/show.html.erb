@@ -1,0 +1,17 @@
+
+<p>
+<%= image_tag @worker.worker_profile.photo if @worker.worker_profile.photo.attached? %>
+</p>
+<p>
+<%= @worker.worker_profile.first_name %> <%= @worker.worker_profile.last_name %>
+</p>
+<p>
+<%= @worker.worker_profile.bio %>
+</p>
+<p>
+<%= link_to 'Download CV', download_resume_path %> 
+</p>
+<p>
+<%= link_to 'Download Document', download_document_path %> 
+</p>
+

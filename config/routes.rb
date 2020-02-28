@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   devise_for :workers 
   devise_for :users
   resources :events do
-    resources :positions 
+    resources :positions do
+      member do 
+        post :apply
+        patch :accept
+        patch :reject
+      end 
+    end 
   end
-
+  resources :workers
   resources :worker_profiles
   patch "/worker_profiles", to: "worker_profiles#update"
 
@@ -14,8 +20,9 @@ Rails.application.routes.draw do
   get 'download_resume', to: "worker_profiles#download_resume"
   get 'download_document', to: "worker_profiles#download_document"
 
+
+
   root to: 'events#homepage'
 end 
 
 
-## Add applications?

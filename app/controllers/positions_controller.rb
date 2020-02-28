@@ -15,6 +15,7 @@ class PositionsController < ApplicationController
   end 
 
   def update
+    @event.position.update(position_params)
   end 
 
   def destroy
@@ -22,6 +23,42 @@ class PositionsController < ApplicationController
 
     redirect_to events_path
   end 
+
+  def apply 
+    @position = @event.positions.find(params[:id])
+    Application.create(
+      worker: current_worker,
+      status: "pending",
+      position: @position
+    )
+
+    redirect_to @event
+  end
+
+  def accept
+    @application = @event.applications.find(params[:id])
+    @application.update(
+      status: "accepted",
+    )
+
+    redirect_to user_dashboard_path
+  end
+
+  def reject
+    @application = @event.applications.find(params[:id])
+    @application.update(
+      status: "rejected",
+    )
+
+    redirect_to user_dashboard_path
+  end
+
+
+
+  # current_user.events.each do |event|
+  #   event.pending_applications
+  # end
+
  
   private
     def position_params

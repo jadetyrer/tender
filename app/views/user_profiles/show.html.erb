@@ -1,0 +1,58 @@
+<h1> Upcoming Events </h1>
+
+<% current_user.events.each do |event| %>
+  <p><%= image_tag event.picture if event.picture.attached? %></p>
+  <p><%= event.name %></p>
+  <p>Dates: <%= event.date_from %> - <%= event.date_to %></p>
+  <p>Location: <%= event.location %></p>
+  <p>Position: <% event.positions.each do |position| %>
+    <%= position.position_type %>
+    <%= link_to 'Edit', edit_event_position_path(event, position) %>
+  <% end %>
+  </p>
+  <%= link_to 'Edit', edit_event_path(event) %> |
+  <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }  %> |
+  <%= link_to 'Add a new position', new_event_position_path(event) %>  
+<% end %>
+  <p>
+<%= link_to 'Add a new event', new_event_path %>
+  </p>
+
+  <h1>Applications</h1>
+  <% current_user.events.each do |event| %>
+    <% event.pending_applications.each do |application| %>
+      <p>Event: <%= event.name %></p>
+      <p>Position: <%= application.position.position_type %></p>
+      <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
+      <p><%= link_to 'Download CV', download_resume_path %></p>
+      <p><%= link_to 'View Profile', worker_path(application.worker) %>
+      <p><%= button_to 'Accept', accept_event_position_path(event, application), method: :patch %>
+      <p><%= button_to 'Reject', reject_event_position_path(event, application), method: :patch %>
+    <% end %>
+  <% end %>
+
+  
+  <% current_user.events.each do |event| %>
+  <h2>Accepted Applications</h2>
+    <% event.accepted_applications.each do |application| %>
+      <p>Event: <%= event.name %></p>
+      <p>Position: <%= application.position.position_type %></p>
+      <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
+      <p><%= link_to 'Download CV', download_resume_path %></p>
+      <p><%= link_to 'View Profile', worker_path(application.worker) %>
+      <p>Status: Accepted</p>
+    <% end %>
+  <% end %>
+   
+   <% current_user.events.each do |event| %>
+   <h2>Rejected Applications</h2>
+    <% event.rejected_applications.each do |application| %>
+      <p>Event: <%= event.name %></p>
+      <p>Position: <%= application.position.position_type %></p>
+      <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
+      <p><%= link_to 'Download CV', download_resume_path %></p>
+      <p><%= link_to 'View Profile', worker_path(application.worker) %>
+      <p>Status: Rejected</p>
+    <% end %>
+  <% end %>
+
