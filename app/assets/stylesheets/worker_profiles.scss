@@ -10,7 +10,43 @@
   flex-direction: column;
   background-color: yellow;
   width: 40%;
+}
+
+.worker-information {
+  margin: 20px;
+  padding: 20px;
+}
+
+.worker-location {
+  font-weight: bolder;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.worker-location img {
+  height: 20px;
+  width: 20px;
+}
+
+
+.worker-email img {
+  height: 20px;
+  width: 20px;
+}
+
+.worker-bio img {
+  height: 20px;
+  width: 20px;
+}
+
+.worker-bio {
   margin-top: 20px;
+}
+
+.worker-name {
+  font-size: x-large;
+  font-weight: bolder;
+  margin-bottom: 50px;
 }
 
 .worker-application-container {
@@ -19,27 +55,35 @@
   background-color: red;
   width: 40%;
   margin-top: 20px;
+  padding: 20px;
 }
 
-.pending-application-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1vh;
-  
+.application-card {
+  background-color: rebeccapurple;
+  margin: 20px;
+  padding: 20px;
 }
 
-.accepted-application-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1vh;
+.application-card-title {
+  font-size: large;
+  font-weight: bolder;
 }
 
-.rejected-application-container {
+.card-button {
   display: flex;
-  flex-direction: column;
-  margin-top: 1vh;
+  justify-content: flex-end;
+}
+
+input[type="submit"] {
+  color: rosybrown;
+
 }
 
 .profile-picture {
-  // clip-path: circle(50% at 50% 50%);
+  margin: 20px;
+}
+
+
+.profile-picture img{
+  border-radius: 50%;
 }
