@@ -29,7 +29,7 @@ class WorkerProfilesController < ApplicationController
 
   private
   def worker_profile_params
-    params.require(:worker_profile).permit(:first_name, :last_name, :bio, :photo, :resume, :document)
+    params.require(:worker_profile).permit(:first_name, :last_name, :bio, :photo, :resume, :document, :city, :number, :country)
   end
 
   def set_worker_profile

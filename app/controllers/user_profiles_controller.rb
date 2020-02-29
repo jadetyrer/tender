@@ -21,15 +21,6 @@ class UserProfilesController < ApplicationController
 
 
 
-
-
-
-
-
-
-
-
-
   private 
   def user_profile_params
     params.require(:user_profile)

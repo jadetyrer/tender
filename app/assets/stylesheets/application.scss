@@ -1,7 +1,13 @@
  @import "bootstrap";
  @import "homepage";
+ @import "worker_profiles"; 
  
  body {
-  font-family: 'Montserrat';
+   font-family: 'Montserrat';
    background: ghostwhite;
+ }
+
+ p {
+   margin: 0;
+   padding: 0;
  }

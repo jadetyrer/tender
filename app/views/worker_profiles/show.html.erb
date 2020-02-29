@@ -3,56 +3,70 @@
 <% elsif %>
   <%= render "worker_profiles/form" %>
 <% end %>
-
-<p>
-<%= image_tag current_worker.worker_profile.photo if current_worker.worker_profile.photo.attached? %>
-</p>
-<p>
-<%= current_worker.worker_profile.first_name %> <%= current_worker.worker_profile.last_name %>
-</p>
-<p>
-<%= current_worker.worker_profile.bio %>
-</p>
-<p>
-<%= link_to 'Download CV', download_resume_path %> 
-</p>
-<p>
-<%= link_to 'Download Document', download_document_path %> 
-</p>
-<%= link_to 'Edit Profile', edit_worker_profile_path(current_worker.worker_profile) %>
-
-
-<h1>Applications</h1>
-<h2>Pending</h2>
-<% current_worker.applications.each do |application| %>
-  <% if application.status == "pending" %>
-    <p>Event: <%= application.position.event.name %>
-    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-    <p>Position: <%= application.position. position_type %></p>
-    <p>Application status: <%= application.status %></p>
-    <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your application?' } %>
-  <% end %>
-<% end %>
-
-<h2>Accepted</h2>
-<% current_worker.applications.each do |application| %>
-  <% if application.status == "accepted" %>
-    <p>Event: <%= application.position.event.name %>
-    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-    <p>Position: <%= application.position. position_type %></p>
-    <p>Application status: <%= application.status %></p>
-  <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your accepted position?' } %>
-  <% end %>
-<% end %>
+<div class="worker-container">
+  <div class="worker-profile-container">
+    <p class="profile-picture">
+    <%= image_tag current_worker.worker_profile.photo if current_worker.worker_profile.photo.attached? %>
+    </p>
+    <p>
+    <%= current_worker.worker_profile.first_name %> <%= current_worker.worker_profile.last_name %>
+    </p>
+    <p>
+    Location: <%= current_worker.worker_profile.city %>, <%= current_worker.worker_profile.country %>
+    </p>
+    <p>
+    Contact email: <%= current_worker.email %>
+    </p>
+    <p>
+    <%= current_worker.worker_profile.bio %>
+    </p>
+    <p>
+    <%= link_to 'Download CV', download_resume_path %> 
+    </p>
+    <p>
+    <%= link_to 'Download Document', download_document_path %> 
+    </p>
+    <%= link_to 'Edit Profile', edit_worker_profile_path(current_worker.worker_profile) %>
+  </div>
 
 
-<h2>Rejected</h2>
-<% current_worker.applications.each do |application| %>
-  <% if application.status == "rejected" %>
-    <p>Event: <%= application.position.event.name %>
-    <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %>
-    <p>Position: <%= application.position. position_type %></p>
-    <p>Application status: <%= application.status %></p>
-    <%= button_to 'Delete', cancel_event_position_path(application.position.event, application), method: :delete %>
-  <% end %>
-<% end %>
+  <div class="worker-application-container">
+    <h1>Applications</h1>
+    <div class="pending-application-conatiner">
+      <h2>Pending</h2>
+      <% current_worker.applications.each do |application| %>
+        <% if application.status == "pending" %>
+          <p>Event: <%= application.position.event.name %></p>
+          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+          <p>Position: <%= application.position. position_type %></p>
+          <p>Application status: <%= application.status %></p>
+          <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your application?' } %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="accepted-application-container">
+      <h2>Accepted</h2>
+      <% current_worker.applications.each do |application| %>
+        <% if application.status == "accepted" %>
+          <p>Event: <%= application.position.event.name %></p>
+          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+          <p>Position: <%= application.position. position_type %></p>
+          <p>Application status: <%= application.status %></p>
+        <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your accepted position?' } %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="rejected-application-conatiner">
+      <h2>Rejected</h2>
+      <% current_worker.applications.each do |application| %>
+        <% if application.status == "rejected" %>
+          <p>Event: <%= application.position.event.name %></p>
+          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+          <p>Position: <%= application.position. position_type %></p>
+          <p>Application status: <%= application.status %></p>
+          <%= button_to 'Delete', cancel_event_position_path(application.position.event, application), method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
