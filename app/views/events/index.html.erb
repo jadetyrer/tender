@@ -1,19 +1,33 @@
-<h1> Upcoming Events </h1>
+<div class="events-container">
+  <h1> Upcoming Events </h1>
 
-<% @events.each do |event| %>
-  <% if event.date_from > Time.now %>
-    <h3><%= event.name %></h3>
-    <p>Date: <%= event.date_from%> - <%=event.date_to %></p>
-    <p>Location: <%= event.location %></p>
+  <div class="search-event">
+  <p>Search for event:</p>
+    <%= form_tag events_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    <% end %>
+    <%= link_to 'Back' %>
+  </div>
 
-    <%= link_to 'View Details', event_path(event) %> 
-    <% if current_user == event.user %>
-      <%= link_to 'Edit', edit_event_path(event) %> |
-      <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <% @events.each do |event| %>
+
+    <% if event.date_from > Time.now %>
+    <div class="event-card">
+      <h3><%= event.name %></h3>
+      <p>Date: <%= event.date_from%> - <%=event.date_to %></p>
+      <p>Location: <%= event.location %></p>
+
+      <%= link_to 'View Details', event_path(event) %> 
+    
+      <% if current_user == event.user %>
+        <%= link_to 'Edit', edit_event_path(event) %> |
+        <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }  %>
+      <% end %>
+    </div>
     <% end %>
   <% end %>
-<% end %>
-
+</div>
   <% if false %>
     <p> Past events: </p>
     <h3><%= event.name %></h3>
