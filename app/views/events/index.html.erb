@@ -2,24 +2,27 @@
   <h1> Upcoming Events </h1>
 
   <div class="search-event">
-  <p>Search for event:</p>
+  <p class="search-text">Search for event:</p>
     <%= form_tag events_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search" %>
     <% end %>
-    <%= link_to 'Back' %>
+    
+    <%= link_to 'Back', events_path %>
   </div>
 
   <% @events.each do |event| %>
 
     <% if event.date_from > Time.now %>
     <div class="event-card">
-      <h3><%= event.name %></h3>
-      <p>Date: <%= event.date_from%> - <%=event.date_to %></p>
-      <p>Location: <%= event.location %></p>
+      <%= image_tag event.picture if event.picture.attached? %>
+      <div class="event-info">
+        <h2><%= event.name %></h2>
+        <p>Date: <%= event.date_from%> - <%=event.date_to %></p>
+        <p>Location: <%= event.location %></p>
 
-      <%= link_to 'View Details', event_path(event) %> 
-    
+        <%= link_to 'View Details', event_path(event) %> 
+      </div>
       <% if current_user == event.user %>
         <%= link_to 'Edit', edit_event_path(event) %> |
         <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }  %>
@@ -28,6 +31,11 @@
     <% end %>
   <% end %>
 </div>
+
+
+
+
+
   <% if false %>
     <p> Past events: </p>
     <h3><%= event.name %></h3>

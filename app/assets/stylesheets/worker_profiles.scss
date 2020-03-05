@@ -2,19 +2,41 @@
 .worker-container {
   display: flex;
   justify-content: space-evenly;
-  background-color: yellowgreen;
+  background-color: rgba(243, 203, 157, 0.7);
+  margin-left: 100px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+}
+
+.worker-container p {
+  color: rgb(243, 203, 157);
+}
+
+.worker-container h1 {
+  color: #2F2D2D;
+}
+
+.worker-container h2 {
+  color: #2F2D2D
 }
 
 .worker-profile-container {
   display: flex;
   flex-direction: column;
-  background-color: yellow;
   width: 40%;
+}
+
+.worker-profile-container p {
+  color: #2F2D2D;
 }
 
 .worker-information {
   margin: 20px;
   padding: 20px;
+}
+
+.worker-information p {
+  color: rgb(78, 60, 43);
 }
 
 .worker-location {
@@ -28,6 +50,9 @@
   width: 20px;
 }
 
+.worker-greeting {
+  color: rgb(243, 203, 157);
+}
 
 .worker-email img {
   height: 20px;
@@ -52,16 +77,15 @@
 .worker-application-container {
   display: flex;
   flex-direction: column;
-  background-color: red;
   width: 40%;
-  margin-top: 20px;
   padding: 20px;
 }
 
 .application-card {
-  background-color: rebeccapurple;
+  background-color:rgb(78, 60, 43);
   margin: 20px;
   padding: 20px;
+
 }
 
 .application-card-title {
@@ -75,8 +99,18 @@
 }
 
 input[type="submit"] {
-  color: rosybrown;
+  background-color:rgb(243, 203, 157);
+  border-radius: 30px;
+  border: none;
+  height: 4vh;
+  width: 7vw;
+  color:rgb(78, 60, 43);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
+input[type="submit"]:hover {
+  cursor: pointer;
+  box-shadow: none;
 }
 
 .profile-picture {
@@ -87,3 +121,20 @@ input[type="submit"] {
 .profile-picture img{
   border-radius: 50%;
 }
+
+.event-show-container p {
+  color: rgb(78, 60, 43);
+}
+
+.event-show-container h1 {
+  color: rgb(78, 60, 43);
+}
+
+.event-show-container h2 {
+  color: rgb(78, 60, 43);
+}
+
+.event-show-container h3 {
+  color: rgb(78, 60, 43);
+}
+

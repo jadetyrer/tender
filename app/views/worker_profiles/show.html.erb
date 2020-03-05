@@ -1,5 +1,6 @@
+
 <% if current_worker.worker_profile %>
-  <h1>Hello, <%= current_worker.worker_profile.first_name %></h1>
+  <h1 class="worker-greeting">Hello, <%= current_worker.worker_profile.first_name %></h1>
 <% elsif %>
   <%= render "worker_profiles/form" %>
 <% end %>

@@ -1,6 +1,6 @@
 <h2>Edit Position:</h2>
 
-<%= form_with(model: [ @event, @event.positions.build ], local: true) do |form| %>
+<%= form_with(model: @position, url: event_position_path(@event, @position), local: true) do |form| %>
   <p>
     <%= form.label :position_type %><br>
     <%= form.text_field :position_type %>
@@ -17,7 +17,13 @@
     <%= form.label :requirements %><br>
     <%= form.text_area :requirements %>
   </p>
+   <p>
+    <%= form.label :additional_information %><br>
+    <%= form.text_area :additional_information %>
+  </p>
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to "Back", user_dashboard_path %>

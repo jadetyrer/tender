@@ -15,7 +15,13 @@
     <%= form.label :requirements %><br>
     <%= form.text_area :requirements %>
   </p>
+   <p>
+    <%= form.label :additional_information %><br>
+    <%= form.text_area :additional_information %>
+  </p>
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to "Back", user_dashboard_path %>

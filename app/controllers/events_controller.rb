@@ -39,14 +39,6 @@ class EventsController < ApplicationController
     redirect_to user_dashboard_path
   end 
 
-  # def set_user_event
-  #   id = params[:id]
-  #   @event = current_user.events.find_by_id(id)
-
-  #   if @event == nil
-  #       redirect_to events_path
-  # end
-
   private
 
   def event_params

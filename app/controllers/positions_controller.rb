@@ -8,14 +8,20 @@ class PositionsController < ApplicationController
 
   def create
     @position = @event.positions.create(position_params)
-    redirect_to event_path(@event)
+    redirect_to user_dashboard_path
   end
 
   def edit
+    @position = @event.positions.find(params[:id])
   end 
 
   def update
-    @event.position.update(position_params)
+    if @event.positions.update(position_params)
+      redirect_to user_dashboard_path
+    else 
+      render :edit
+    end  
+    
   end 
 
   def destroy
@@ -70,7 +76,7 @@ class PositionsController < ApplicationController
  
   private
     def position_params
-      params.require(:position).permit(:position_type, :hours, :rate, :requirements)
+      params.require(:position).permit(:position_type, :hours, :rate, :requirements, :additional_information)
     end
 
     def find_event 
