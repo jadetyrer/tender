@@ -1,5 +1,8 @@
-<h1>Update <%= @event.name %></h1>
+<div class="new-event">
 
-<%= render 'form', event: @event %>
+  <h1>Update <%= @event.name %>:</h1>
 
-<%= link_to 'Back', user_dashboard_path %>
+  <%= render 'form', event: @event %>
+
+  <%= button_to 'Back', user_dashboard_path, method: :get %>
+</div>

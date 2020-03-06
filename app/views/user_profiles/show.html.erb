@@ -55,11 +55,13 @@
     <% current_user.events.each do |event| %>
       <% event.accepted_applications.each do |application| %>
         <div class="user-applications-card">
-          <p>Event: <%= event.name %></p>
-          <p>Position: <%= application.position.position_type %></p>
-          <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
-          <p><%= link_to 'Download CV', download_resume_path %></p>
-          <p><%= link_to 'View Profile', worker_path(application.worker) %>
+          <p><b>Event: </b><%= event.name %></p>
+          <p><b>Position: </b><%= application.position.position_type %></p>
+          <p><b>Applicant Name: </b><%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
+          <div class="app-buttons">
+            <p><%= button_to 'Download CV', download_resume_path, method: :get %></p>
+            <p><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
+          </div>
           <p>Status: Accepted</p>
         </div>
       <% end %>
@@ -72,8 +74,10 @@
           <p>Event: <%= event.name %></p>
           <p>Position: <%= application.position.position_type %></p>
           <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
-          <p><%= link_to 'Download CV', download_resume_path %></p>
-          <p><%= link_to 'View Profile', worker_path(application.worker) %>
+          <div class="app-buttons">
+            <p><%= button_to 'Download CV', download_resume_path, method: :get %></p>
+            <p><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
+          </div>
           <p>Status: Rejected</p>
         </div>
       <% end %>

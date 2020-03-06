@@ -1,21 +1,25 @@
 <div class="nav-container">
-  <h2>tender</h2>
+  <h2><%= link_to 'tender', "/", method: :get %></h2>
   <% if user_signed_in? %>
     <div class="signed-in">
-      <div class="button"><%= link_to 'Browse Events', events_path %></div>
-      <div class="button"><%= link_to 'Dashboard', user_dashboard_path %></div>
+      <div class="button"><%= button_to 'Browse Events', events_path, method: :get %></div>
+      <div class="button"><%= button_to 'Dashboard', user_dashboard_path, method: :get %></div>
       <div class="email"><%= current_user.email %></div>
-      <div class="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></div>
+      <div class="button"><%= button_to 'Sign out', destroy_user_session_path, method: :delete %></div>
     </div>
   <% elsif worker_signed_in? %> 
-    Signed in as worker: <%= current_worker.email %>
-    <%= link_to 'Sign out', destroy_worker_session_path, method: :delete %>
-    <%= link_to 'Browse Events', events_path %> 
-    <%= link_to 'Dashboard', worker_dashboard_path %>
+    <div class="signed-in">
+      <div class="button"><%= button_to 'Browse Events', events_path, method: :get %></div>
+      <div class="button"><%= button_to 'Dashboard', worker_dashboard_path, method: :get %></div>
+      <div class="email"><%= current_worker.email %></div>
+      <div class="button"><%= button_to 'Sign out', destroy_worker_session_path, method: :delete %></div>
+    </div>
   <% else %>
-    <%= link_to 'Sign in as user', new_user_session_path %>
-    <%= link_to 'Sign in as worker', new_worker_session_path %>
-    <%= link_to 'About Us' %>
+  <div class="signed-out">
+    <div class="button"><%= button_to 'SIGN IN AS EMPLOYER', new_user_session_path, method: :get %></div>
+    <div class="button"><%= button_to 'SIGN IN AS EMPLOYEE', new_worker_session_path, method: :get %></div>
+    <div class="button"><%= button_to 'ABOUT US' %></div>
+  </div>
 <% end %>
 </div>
 

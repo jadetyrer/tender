@@ -5,7 +5,15 @@
   width: 100vw;
 }
 
+
+
 .signed-in {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+}
+
+.signed-out {
   display: flex;
   justify-content: flex-end;
   width: 100vw;
@@ -16,15 +24,6 @@
   margin-left: 30px;
 }
 
-// .button {
-//   background-color:#C4C4C4;
-//   border-radius: 30px;
-//   border: none;
-//   height: 4vh;
-//   width: 7vw;
-//   color: #C4C4C4;
-//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-// }
 
 .button {
   text-align: center;
@@ -36,6 +35,12 @@
 .email {
   padding: 15px;
   padding-right: 0;
+  color: rgb(212, 123, 6);
+}
+
+.nav-container a {
+  text-decoration: none;
+  color: rgb(212, 123, 6);
 }
 
 

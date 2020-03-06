@@ -2,8 +2,14 @@
 
 
 <% unless user_signed_in? || worker_signed_in? %>
-  <p>Find Job</p>
-    <%= link_to 'Sign up as worker', new_worker_registration_path %>
-  <p>Post Job</p>
-    <%= link_to 'Sign up as user', new_user_registration_path %>
+<div class="homepage-links">
+  <div class="find-job">
+    <p>Find Job</p>
+      <%= button_to 'Sign up as employee', new_worker_registration_path, method: :get %>
+  </div>
+  <div class="post-job">
+    <p>Post Job</p>
+      <%= button_to 'Sign up as employer', new_user_registration_path, method: :get %>
+  </div>
+</div>
 <% end %>
