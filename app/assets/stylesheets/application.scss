@@ -3,6 +3,8 @@
  @import "events";
  @import "navbar";
  @import "user_profile";
+ @import "workers";
+ @import "form";
  
  body {
    font-family: 'Montserrat';
@@ -19,5 +21,10 @@
  p {
    margin: 0;
    padding: 0;
+ }
+
+ h2 {
+   color: rgb(243, 203, 157);
+   margin-left: 80px;
  }
 

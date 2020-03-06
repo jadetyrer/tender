@@ -5,11 +5,11 @@
       <h1><%= @event.name %></h1>
       <%= image_tag @event.picture if @event.picture.attached? %>
       <h2>Location: <%= @event.location %></h2>
-      <p>Website: www.<%= @event.name.downcase.delete(' ') %>.com.au<p>
-      <p>Conatct email: <%= @event.contact_email %></p>
-      <p>Event info: <%= @event.description %></p>
-      <p>Date: <%= @event.date_from %> - <%= @event.date_to %></p>
-      <p>Event creator: <%= @event.user.email %></p>
+      <p><b>Website:</b> www.<%= @event.name.downcase.delete(' ') %>.com.au<p>
+      <p><b>Conatct email: </b><%= @event.contact_email %></p>
+      <p><b>Event info: </b><%= @event.description %></p>
+      <p><b>Date: </b><%= @event.date_from %> - <%= @event.date_to %></p>
+      <p><b>Event creator: </b><%= @event.user.email %></p>
     </div>
     <div class="event-show-position">
       <h3>Available Positions:</h3>
@@ -18,10 +18,10 @@
       </p>
 
       <% if current_user == @event.user %>
-        <%= link_to 'Add a new position', new_event_position_path(@event) %><br>
-        <%= link_to 'Edit', edit_event_path(@event) %> 
+        <%= button_to 'Add a new position', new_event_position_path(@event), method: :get %><br>
+        <%= button_to 'Edit event', edit_event_path(@event), method: :get %><br>
       <% end %>
-      <%= link_to 'Back', events_path %>
+      <%= button_to 'Back', events_path, method: :get %>
     </div>
   </div>
 </div>

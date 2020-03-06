@@ -1,3 +1,42 @@
-// Place all the styles related to the Workers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.worker-profile-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.worker-profile-view-container p {
+  color: rgb(78, 60, 43);
+}
+
+.content-worker-profile {
+  width: 60vw;
+  background-color: rgba(243, 203, 157, 0.7);
+  padding: 60px;
+  margin-top: 60px;
+  height: 60vh;
+}
+
+.worker-name-display {
+  font-weight: bolder;
+  font-size: x-large;
+  margin-top: 30px;
+}
+
+.worker-bio-display {
+  margin-top: 30px;
+}
+
+.worker-links {
+  display: flex;
+  margin-top: 20px;
+}
+
+.worker-links p {
+  margin-right: 10px;
+}
+
+.back-button-profile {
+  margin-left: 10px;
+  margin-top: 70px;
+}
+

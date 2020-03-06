@@ -3,33 +3,33 @@
     <h2> Upcoming Events </h2>
     <% current_user.events.each do |event| %>
       <% if event.date_from > Time.now %>
-      <div class="user-event-card">
-        <div class="top-section">
-          <div class="image">
+        <div class="user-event-card">
+          <div class="top-section">
             <p><%= image_tag event.picture if event.picture.attached? %></p>
-          </div>
-          <div class="info">
-            <p class="event-name"><%= event.name %></p>
-            <p>Dates: <%= event.date_from %> to <%= event.date_to %></p>
-            <p>Location: <%= event.location %></p>
-            <p>Position: <% event.positions.each do |position| %>
-            <p><%= position.position_type %></p>
-            <%= link_to 'Edit', edit_event_position_path(event, position) %> |
-            <%= link_to 'Delete', event_position_path(event, position), method: :delete, data: { confirm: 'Are you sure you want to delete the position?' }  %> 
+            <div class="info">
+              <p class="event-name"><%= event.name %></p>
+              <p><b>Dates: </b><%= event.date_from %> to <%= event.date_to %></p>
+              <p><b>Location: </b><%= event.location %></p>
+              <p><b>Positions: </b><% event.positions.each do |position| %>
+                <b><p><%= position.position_type %></p></b>
+                <div class="position-links-dashboard">
+                  <%= button_to 'Edit', edit_event_position_path(event, position), method: :get %>
+                  <%= button_to 'Delete', event_position_path(event, position), method: :delete, data: { confirm: 'Are you sure you want to delete the position?' }  %>
+                </div>
+              <% end %>
+            </div>
+          
+          <div class="links">
+            <%= button_to 'Edit', edit_event_path(event), method: :get %><br>
+            <%= button_to 'Delete Event', event_path(event), method: :delete, data: { confirm: 'Are you sure you want to delete the event?' }  %><br>
+            <%= button_to 'Add a new position', new_event_position_path(event), method: :get %> 
           </div>
         </div>
-        <% end %>
-        <div class="links">
-          <%= link_to 'Edit', edit_event_path(event) %> |
-          <%= link_to 'Delete Event', event_path(event), method: :delete, data: { confirm: 'Are you sure you want to delete the event?' }  %> |
-          <%= link_to 'Add a new position', new_event_position_path(event) %> 
-        </div>
-
-      </div>
       <% end %> 
     <% end %>
-
-    <%= link_to 'Create event', new_event_path %>
+    </div>
+      <%= button_to 'Create event', new_event_path, method: :get %>
+    
   </div>
 
 
@@ -38,11 +38,11 @@
     <% current_user.events.each do |event| %>
       <% event.pending_applications.each do |application| %>
       <div class="user-applications-card">
-        <p>Event: <%= event.name %></p>
-        <p>Position: <%= application.position.position_type %></p>
-        <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
-        <p><%= link_to 'Download CV', download_resume_path %></p>
-        <p><%= link_to 'View Profile', worker_path(application.worker) %>
+        <p><b>Event: </b><%= event.name %></p>
+        <p><b>Position: </b><%= application.position.position_type %></p>
+        <p><b>Applicant Name:</b> <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
+        <p class="download-button"><%= button_to 'Download CV', download_resume_path, method: :get %></p>
+        <p class="view-profile-button"><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
         <div class="app-buttons">
           <p><%= button_to 'Accept', accept_event_position_path(event, application), method: :patch %>
           <p><%= button_to 'Reject', reject_event_position_path(event, application), method: :patch %>

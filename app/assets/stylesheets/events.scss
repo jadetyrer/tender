@@ -78,3 +78,13 @@
   width: 40vw;
   padding: 20px;
 }
+
+.events-container [type="submit"] {
+  background-color:rgb(78, 60, 43);
+  border-radius: 30px;
+  border: none;
+  height: 4vh;
+  width: 10vw;
+  color: rgb(243, 203, 157);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

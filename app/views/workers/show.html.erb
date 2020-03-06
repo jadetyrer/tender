@@ -1,17 +1,25 @@
-
-<p>
-<%= image_tag @worker.worker_profile.photo if @worker.worker_profile.photo.attached? %>
-</p>
-<p>
-<%= @worker.worker_profile.first_name %> <%= @worker.worker_profile.last_name %>
-</p>
-<p>
-<%= @worker.worker_profile.bio %>
-</p>
-<p>
-<%= link_to 'Download CV', download_resume_path %> 
-</p>
-<p>
-<%= link_to 'Download Document', download_document_path %> 
-</p>
+<div class="worker-profile-view-container">
+  <div class="content-worker-profile">
+    <p>
+    <%= image_tag @worker.worker_profile.photo if @worker.worker_profile.photo.attached? %>
+    </p>
+    <p class="worker-name-display">
+    <%= @worker.worker_profile.first_name %> <%= @worker.worker_profile.last_name %>
+    </p>
+    <p class="worker-bio-display">
+    <%= @worker.worker_profile.bio %>
+    </p>
+    <div class="worker-links">
+      <p>
+      <%= button_to 'Download CV', download_resume_path, method: :get %> 
+      </p>
+      <p>
+      <%= button_to 'Download Document', download_document_path, method: :get %> 
+      </p>
+    </div>
+    <div class="back-button-profile">
+      <%= button_to 'Back', user_dashboard_path, method: :get %>
+    </div>
+  </div>
+</div>
 

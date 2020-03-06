@@ -13,11 +13,11 @@
 }
 
 .worker-container h1 {
-  color: #2F2D2D;
+  color: rgb(78, 60, 43);
 }
 
 .worker-container h2 {
-  color: #2F2D2D
+  color: rgb(78, 60, 43);
 }
 
 .worker-profile-container {
@@ -27,7 +27,7 @@
 }
 
 .worker-profile-container p {
-  color: #2F2D2D;
+  color: rgb(78, 60, 43);
 }
 
 .worker-information {
@@ -40,7 +40,6 @@
 }
 
 .worker-location {
-  font-weight: bolder;
   display: flex;
   margin-bottom: 10px;
 }
@@ -82,7 +81,7 @@
 }
 
 .application-card {
-  background-color:rgb(78, 60, 43);
+  background-color:rgba(78, 60, 43, 0.9);
   margin: 20px;
   padding: 20px;
 
@@ -103,7 +102,7 @@ input[type="submit"] {
   border-radius: 30px;
   border: none;
   height: 4vh;
-  width: 7vw;
+  width: 10vw;
   color:rgb(78, 60, 43);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -136,5 +135,10 @@ input[type="submit"]:hover {
 
 .event-show-container h3 {
   color: rgb(78, 60, 43);
+}
+
+.links {
+  display: flex;
+  margin-top: 20px;
 }
 
