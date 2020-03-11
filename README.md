@@ -1,27 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
 #### R7 Problem trying to solve 
@@ -46,7 +22,7 @@ https://github.com/jadetyrer/tender
 #### R11 Description of Tender 
 
 ###### Purpose 
-The purpose of Tender is to bring event organisers in need of workers at the event and people that would like to work at the event. It provides a platform for both parties to easily connect and find the appropriate worker or job. The event organisers can log on and create events and add the job positions available for the event. The potential workers can then search through these events and view the available roles. They can click apply for any of the roles and the application will be sent to the relevant employer for processing. The emplyer can then log on and view the applicatnts on thier dashboard which contains links to thier porfile and the baility to downlload thier qualifications and CV. From this information the emplyer can make a decsion on whether to accept or reject the application. The worker will then be notified on their dashboard on the status of thier application. 
+The purpose of Tender is to bring event organisers in need of workers at the event and people that would like to work at the event. It provides a platform for both parties to easily connect and find the appropriate worker or job. The event organisers can log on and create events and add the job positions available for the event. The potential workers can then search through these events and view the available roles. They can click apply for any of the roles and the application will be sent to the relevant employer for processing. The employer can then log on and view the applicants on their dashboard which contains links to their profile and the ability to download their qualifications and CV. From this information the employer can make a decision on whether to accept or reject the application. The worker will then be notified on their dashboard on the status of their application. 
 
 ###### Functionality and Features
 The features of the platform form include: 
@@ -63,7 +39,7 @@ The features of the platform form include:
 
 ###### Sitemap
 
-![sitemap](sitemap.png)
+![sitemap](docs/sitemap.png)
 
 ###### Screenshots 
 Add after changing database
@@ -74,7 +50,7 @@ The target audience is organisers of any events such as sporting events, music f
 ###### Tech Stack 
 * Ruby on Rails 
 * AWS S3 
-* PostgresQL
+* PostgreSQL
 * Heroku
 * HTML
 * SCSS 
@@ -100,48 +76,194 @@ As an employee, I want to:
 * Apply for the positions at certain events so I can get a job that is suitable
 * See the status of my applications so I know if I have been selected
 
-![user-stories](user-stories.png)
+![user-stories](docs/user-stories.png)
 
 #### R13 Wireframes 
 
 Below are my wireframes that I created using Figma:
 
-![homepage](homepage.png)
+![homepage](docs/homepage.png)
 
-![events-index](events-index.png)
+![events-index](docs/events-index.png)
 
-![event-show](event-show.png)
+![event-show](docs/event-show.png)
 
-![create-event](create-event.png)
+![create-event](docs/create-event.png)
 
-![create-position](create-position.png)
+![create-position](docs/create-position.png)
 
-![user-dashboard](user-dashboard.png)
+![user-dashboard](docs/user-dashboard.png)
 
-![worker-dashboard](worker-dashboard.png)
+![worker-dashboard](docs/worker-dashboard.png)
 
-![edit-profile](edit-profile.png)
+![edit-profile](docs/edit-profile.png)
 
 #### R14 ERD for Tender
 
-Below is my enitiy relationship diagram (ERD) that was created using Lucid Chart:
+Below is my entity relationship diagram (ERD) that was created using Lucid Chart:
 
-![ERD](ERD.png)
+![ERD](docs/ERD.png)
 
 #### R15 High Level Abstractions 
 
+My application is built using Ruby on Rails this is a framework written in the Ruby language. Ruby is a high-level programming language that is written in a lower level language called C. The C programming language will then convert the Ruby code into machine code and finally into binary for the hardware to understand. Each of these layers are known as layers of abstraction as they are abstracting away from the hardware into code that humans can understand. 
+
+For example, in Ruby on Rails, ActiveRecord is layer of abstraction from SQL that makes the code more readable when talking to the database (in this case to PostgreSQL which is also written in C). 
+
+Another high-level abstraction in the appliccation is the rails helper when creating forms. Writing a form in HTML can take a lot of code but the layer of abstraction that Rails provides makes it mush shorter and simpler to build, Action View Form Helper. 
+
+RESTful Routes are another high-level abstraction that is provided in Rails. Routes allow the HTTP requests to be easily implemented. The ```routes.rb``` file will allow the correct HTTP request to be mapped to the controller and provide the next URL to be displayed. 
+
+
 #### R16 Third party APIs
 
+Devise is a Gem that will take care of the authentication of my web application such as the signing-up and logging-in. I will be using Devise to authenticate users of Tender and will create two different models. I will create a Devise user model that will be used to identify the employers and allow thm to havre a separate sign-up and log-in to the workers. Workers will have their own model this allows the different content to be available depending on the logged-in user. The Devise Gem takes care of all of the code relating to authentication such as the models, controllers and routes. 
+
+I will be utilising AWS (Amazon Web Services) S3 (Simple Storage Service) to store my data related to the images and documentation that will be uploaded by the users of Tender. When the users upload information it will be sent to a bucket that I have connected with my Rails application via protected keys. 
+
 #### R17 Project Models 
+The Tender Active Record Models:
+* Devise user model :has_one :user_profile and :has_many :applications
+* User_profile :belongs_to :worker, has_one: :photo, has_one: :document and has_one: :resume
+* Devise worker model :has_one :user_profile and has_many: :events
+* Worker_profile (created as worker signs up) belongs_to: :worker 
+* Event has_one_attached :picture, has_many_attached :positions and has_many_attached: :applications, through: :positions
+* Position (created after a employer has created an event)belongs_to: :event and has_many: :applications
+* Application (created once the worker has clicked apply on a position) belongs_ to: :position and belongs_to: :worker
+
+These connections can also be seen in the database schema.
 
 #### R18 Database Relations 
+The relations in Tender will have both one-to-one and one-to-many relationships. Any many-to-many relationships will be dealt with by creating a new table to connect them. This can be seen in the case of applications where the worker could have apply for many positions and the positions could have many workers apply therefore the application table is created. 
 
 #### R19 Database Schema 
+Below is the Rails database schema for Tender:
+``` ruby
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.bigint "worker_id", null: false
+    t.bigint "position_id", null: false
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["position_id"], name: "index_applications_on_position_id"
+    t.index ["worker_id"], name: "index_applications_on_worker_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "external_link"
+    t.string "contact_email"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "date_from"
+    t.date "date_to"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "position_type"
+    t.float "rate"
+    t.text "requirements"
+    t.string "hours"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "additional_information"
+    t.index ["event_id"], name: "index_positions_on_event_id"
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "worker_profiles", force: :cascade do |t|
+    t.bigint "worker_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "city"
+    t.string "country"
+    t.integer "number"
+    t.index ["worker_id"], name: "index_worker_profiles_on_worker_id"
+  end
+
+  create_table "workers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_workers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "applications", "positions"
+  add_foreign_key "applications", "workers"
+  add_foreign_key "events", "users"
+  add_foreign_key "positions", "events"
+  add_foreign_key "user_profiles", "users"
+  add_foreign_key "worker_profiles", "workers"
+end
+```
+
 
 #### R20 Project Tracking
 
+I used Trello to track the progress of my web application. I broke the large project down into smaller tasks following the Agile approach to project management. I then moved each of my smaller task cards into a group called in progress or done. This way I knew which stage I was at with each of the tasks. I then added in any additional tasks I found along the way. This was an efficient way of making sure that I was on track with deadlines and the project would be completed on time. I have provided screenshots of the Trello board:
+
+![trello](docs/trello-1.png)
+
+![trello](docs/trello-2.png)
+
+![trello](docs/trello-3.png)
+
+![trello](docs/trello-4.png)
+
+![trello](docs/trello-5.png)
 
 
 
-
-Can be expanded to vendors. 
