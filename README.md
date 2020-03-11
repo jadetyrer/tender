@@ -1,14 +1,14 @@
 
 
 #### R7 Problem trying to solve 
-#### R8 Why the problem needs solving
 Tender is a marketplace for organisers of events to find event staff and for people to find work at events they would like to attend. When planning an event organisers do not employ people all year round and may find it difficult to find staff for the short period of the event. Tender is a web application that can help solve this issue. Event organisers can log on and create events and add job positions for these events. Employees can then log on and apply for the jobs at the events they wish to attend. Tender creates a platform for ease and efficiency of finding employees for events. 
 
 Tender will also have a rating system for both the employee and the employer this will help to avoid the issues of workers or employers not delivering what was promised. Many event staff do not turn up for all shifts and the rating system will act as a deterrent for this and provide information to the organisers which staff will do the best job. The profile and the CV of the worker are available for the employer when the worker applies for the position and the employer can accept of reject the application based on these and the star rating from pervious events worked. 
 
-It is difficult for event organisers to get the same events staff for every event and every year. This is the reason event organisers need Tender to help them find reliable staff easily. Tender will create a hassle-free process for both parties to apply for and advertise event work. It solves the problem of 
+#### R8 Why the problem needs solving
+It is difficult for event organisers to get the same events staff for every event and every year. This is the reason event organisers need Tender to help them find reliable staff easily. Tender will create a hassle-free process for both parties to apply for and advertise event work. Event organisers could find staff more easily and with less cost to them via this application. 
 
-Tender also cuts out the need for a third party to find staff reducing the costs of the event organisers and creates the opportunity for employees to find causal work at events they wish to attend. Currently there are no platforms that brings these parties together. 
+Tender cuts out the need for a third party to find staff reducing the costs of the event organisers and creates the opportunity for employees to find causal work at events they wish to attend. Currently there are no other platforms that brings these parties together. 
 
 
 #### R9 Link to deployed app
@@ -26,7 +26,7 @@ The purpose of Tender is to bring event organisers in need of workers at the eve
 
 ###### Functionality and Features
 The features of the platform form include: 
-* Separate sign-ups for employees and employers - Devise was used to allow both the worker and the organisers to sign-up and have their own unique logins. 
+* Separate sign-ups for employees and employers - Devise was used to allow both the worker and the organisers to sign-up and have their own unique log-ins. 
 * The ability for employers to create, edit and delete events
 * Employers can create multiple available positions for each event and edit them
 * Separate dashboards for each party - the platform shows information relevant to the logged in user. 
@@ -80,7 +80,7 @@ As an employee, I want to:
 
 #### R13 Wireframes 
 
-Below are my wireframes that I created using Figma:
+Below are my web application wireframes that I created using Figma:
 
 ![homepage](docs/homepage.png)
 
@@ -97,6 +97,11 @@ Below are my wireframes that I created using Figma:
 ![worker-dashboard](docs/worker-dashboard.png)
 
 ![edit-profile](docs/edit-profile.png)
+
+
+###### Mobile view wireframes:
+![mobile-view](docs/mobile.png)
+
 
 #### R14 ERD for Tender
 
@@ -265,5 +270,6 @@ I used Trello to track the progress of my web application. I broke the large pro
 
 ![trello](docs/trello-5.png)
 
+![trello](docs/trello-6.png)
 
 

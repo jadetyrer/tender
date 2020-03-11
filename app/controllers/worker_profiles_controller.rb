@@ -1,5 +1,5 @@
 class WorkerProfilesController < ApplicationController
-  before_action :set_worker_profile, only: [:edit, :update, :download_resume, :download_document]
+  before_action :set_worker_profile, only: [:show, :edit, :update, :download_resume, :download_document]
   
   def new
   end 
@@ -33,7 +33,7 @@ class WorkerProfilesController < ApplicationController
   end
 
   def set_worker_profile
-    @worker_profile = current_worker.worker_profile
+    @worker_profile = current_worker.worker_profile || current_worker.build_worker_profile
   end
 
 end

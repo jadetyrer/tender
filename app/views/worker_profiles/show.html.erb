@@ -1,10 +1,7 @@
 
-<% if current_worker.worker_profile %>
+<% if current_worker.worker_profile.persisted? %>
   <h1 class="worker-greeting">Hello, <%= current_worker.worker_profile.first_name %></h1>
-<% elsif %>
-  <%= render "worker_profiles/form" %>
-<% end %>
-<div class="worker-container">
+  <div class="worker-container">
   <div class="worker-profile-container">
     <p class="profile-picture">
     <%= image_tag current_worker.worker_profile.photo if current_worker.worker_profile.photo.attached? %>
@@ -36,6 +33,9 @@
       </div>
     </div>
   </div>
+<% elsif %>
+  <%= render "worker_profiles/form" %>
+<% end %>
 
 
   <div class="worker-application-container">
