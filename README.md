@@ -272,4 +272,6 @@ I used Trello to track the progress of my web application. I broke the large pro
 
 ![trello](docs/trello-6.png)
 
+![trello](docs/trello-7.png)
+
 

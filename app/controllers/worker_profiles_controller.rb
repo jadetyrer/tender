@@ -33,7 +33,9 @@ class WorkerProfilesController < ApplicationController
   end
 
   def set_worker_profile
-    @worker_profile = current_worker.worker_profile || current_worker.build_worker_profile
+    @worker = Worker.find(params[:id]) if params[:id] 
+    @worker ||= current_worker
+    @worker_profile = @worker.worker_profile || @worker.build_worker_profile
   end
 
 end

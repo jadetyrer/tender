@@ -3,6 +3,12 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :positions, dependent: :destroy
   has_many :applications, through: :positions, dependent: :destroy
+  validates :name, presence: true
+  validates :location, presence: true
+  validates :contact_email, presence: true
+  validates :description, presence: :true
+  validates :date_from, presence: :true
+  validates :date_to, presence: :true
 
   def pending_applications
     applications.where(status: "pending")

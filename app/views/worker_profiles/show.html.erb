@@ -24,10 +24,10 @@
       </p>
       <div class="links-worker">
         <p>
-        <%= button_to 'Download CV', download_resume_path, method: :get %> 
+        <%= button_to 'Download CV', download_resume_path(current_worker), method: :get %> 
         </p><br>
         <p>
-        <%= button_to 'Download Qualification', download_document_path, method: :get %> 
+        <%= button_to 'Download Qualification', download_document_path(current_worker), method: :get %> 
         </p><br>
         <%= button_to 'Edit Profile', edit_worker_profile_path(current_worker.worker_profile), method: :get %>
       </div>
@@ -37,56 +37,57 @@
   <%= render "worker_profiles/form" %>
 <% end %>
 
-
-  <div class="worker-application-container">
-    <h1>Applications</h1>
-    <div class="pending-application-container">
-      <h2>Pending</h2>
-      <% current_worker.applications.each do |application| %>
-        <% if application.status == "pending" %>
-        <div class="application-card">  
-          <p class="application-card-title"><%= application.position.event.name %></p>
-          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
-          <p>Position: <%= application.position. position_type %></p>
-          <p>Location: <%= application.position.event.location %></p>
-          <div class="card-button">
-            <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your application?' } %>
+  <% if current_worker.worker_profile.persisted? %>
+    <div class="worker-application-container">
+      <h1>Applications</h1>
+      <div class="pending-application-container">
+        <h2>Pending</h2>
+        <% current_worker.applications.each do |application| %>
+          <% if application.status == "pending" %>
+          <div class="application-card">  
+            <p class="application-card-title"><%= application.position.event.name %></p>
+            <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+            <p>Position: <%= application.position. position_type %></p>
+            <p>Location: <%= application.position.event.location %></p>
+            <div class="card-button">
+              <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your application?' } %>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class="accepted-application-container">
-      <h2>Accepted</h2>
-      <% current_worker.applications.each do |application| %>
-        <% if application.status == "accepted" %>
-        <div class="application-card">
-          <p class="application-card-title"><%= application.position.event.name %></p>
-          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
-          <p>Position: <%= application.position. position_type %></p>
-          <p>Location: <%= application.position.event.location %></p>
-          <div class="card-button">
-            <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your accepted position?' } %>
+      </div>
+      <div class="accepted-application-container">
+        <h2>Accepted</h2>
+        <% current_worker.applications.each do |application| %>
+          <% if application.status == "accepted" %>
+          <div class="application-card">
+            <p class="application-card-title"><%= application.position.event.name %></p>
+            <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+            <p>Position: <%= application.position. position_type %></p>
+            <p>Location: <%= application.position.event.location %></p>
+            <div class="card-button">
+              <%= button_to 'Cancel', cancel_event_position_path(application.position.event, application), method: :delete, data: { confirm: 'Are you sure you want to cancel your accepted position?' } %>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class="rejected-application-conatiner">
-      <h2>Rejected</h2>
-      <% current_worker.applications.each do |application| %>
-        <% if application.status == "rejected" %>
-        <div class="application-card">
-          <p class="application-card-title"><%= application.position.event.name %></p>
-          <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
-          <p>Position: <%= application.position. position_type %></p>
-          <p>Location: <%= application.position.event.location %></p>
-          <div class="card-button">
-            <%= button_to 'Delete', cancel_event_position_path(application.position.event, application), method: :delete %>
+      </div>
+      <div class="rejected-application-conatiner">
+        <h2>Rejected</h2>
+        <% current_worker.applications.each do |application| %>
+          <% if application.status == "rejected" %>
+          <div class="application-card">
+            <p class="application-card-title"><%= application.position.event.name %></p>
+            <p>Date: <%= application.position.event.date_from %> - <%= application.position.event.date_to %></p>
+            <p>Position: <%= application.position. position_type %></p>
+            <p>Location: <%= application.position.event.location %></p>
+            <div class="card-button">
+              <%= button_to 'Delete', cancel_event_position_path(application.position.event, application), method: :delete %>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
