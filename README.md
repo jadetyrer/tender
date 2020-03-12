@@ -275,3 +275,12 @@ I used Trello to track the progress of my web application. I broke the large pro
 ![trello](docs/trello-7.png)
 
 I managed to meet all the requirements for the MVP for Tender but there other features I would like to add moving forward. Due to time constraints the rating feature will be added at a later date. All of the main functionality is working and bugs have been fixed. Tracking my application in Trello meant all tasks could be logged and addressed in a timely manner. 
+
+
+
+Hints:
+list of routes for site map? List the pages
+
+As a potential employee I would like to find a job at an event by viewing and searching the events and the positions and clicking apply 
+
+difference between schema and ERD 

@@ -5,10 +5,10 @@
       <h1><%= @event.name %></h1>
       <%= image_tag @event.picture if @event.picture.attached? %>
       <h2>Location: <%= @event.location %></h2>
-      <p><b>Website:</b> www.<%= @event.name.downcase.delete(' ') %>.com.au<p>
-      <p><b>Conatct email: </b><%= @event.contact_email %></p>
-      <p><b>Event info: </b><%= @event.description %></p>
-      <p><b>Date: </b><%= @event.date_from %> - <%= @event.date_to %></p>
+      <p><b>Website:</b> www.<%= @event.name.downcase.delete(' ') %>.com.au<p><br>
+      <p><b>Conatct email: </b><%= @event.contact_email %></p><br>
+      <p><b>Event info: </b><%= @event.description %></p><br>
+      <p><b>Date: </b><%= @event.date_from %> - <%= @event.date_to %></p><br>
       <p><b>Event creator: </b><%= @event.user.email %></p>
     </div>
     <div class="event-show-position">
