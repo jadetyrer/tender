@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :external_link, :conatct_email, :description, :picture, :date_from, :date_to)
+    params.require(:event).permit(:name, :location, :external_link, :contact_email, :description, :picture, :date_from, :date_to)
   end 
 
   def find_event
