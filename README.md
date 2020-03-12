@@ -1,12 +1,12 @@
 
 
 #### R7 Problem trying to solve 
-Tender is a marketplace for organisers of events to find event staff and for people to find work at events they would like to attend. When planning an event organisers do not employ people all year round and may find it difficult to find staff for the short period of the event. Tender is a web application that can help solve this issue. Event organisers can log on and create events and add job positions for these events. Employees can then log on and apply for the jobs at the events they wish to attend. Tender creates a platform for ease and efficiency of finding employees for events. 
+Tender is a marketplace for organisers of events to find event staff and for people to find work at events they would like to attend. When planning an event organisers do not employ people all year round and may find it difficult to find staff for the short period of the event. Tender is a web application that can help solve this issue. Event organisers can log on and create events and add job positions for these events. Employees can log on and apply for the jobs at the events they wish to attend. Tender creates a platform for ease and efficiency of finding employees for events and finding temporary work at events. 
 
 Tender will also have a rating system for both the employee and the employer this will help to avoid the issues of workers or employers not delivering what was promised. Many event staff do not turn up for all shifts and the rating system will act as a deterrent for this and provide information to the organisers which staff will do the best job. The profile and the CV of the worker are available for the employer when the worker applies for the position and the employer can accept of reject the application based on these and the star rating from pervious events worked. 
 
 #### R8 Why the problem needs solving
-It is difficult for event organisers to get the same events staff for every event and every year. This is the reason event organisers need Tender to help them find reliable staff easily. Tender will create a hassle-free process for both parties to apply for and advertise event work. Event organisers could find staff more easily and with less cost to them via this application. 
+It is difficult for event organisers to find reliable and hard-working staff for events. This is the reason event organisers need a platform like Tender to help them find reliable staff easily. Tender will create a hassle-free process for both parties to apply for and advertise event work. Event organisers could find staff more easily and with less cost to them via this web application. 
 
 Tender cuts out the need for a third party to find staff reducing the costs of the event organisers and creates the opportunity for employees to find causal work at events they wish to attend. Currently there are no other platforms that brings these parties together. 
 
@@ -45,7 +45,7 @@ The features of the platform form include:
 Add after changing database
 
 ###### Target Audience
-The target audience is organisers of any events such as sporting events, music festivals and food festivals. These event organisers will need temporary staff such as security staff, wait staff and bartenders. The target audience of workers are individuals that need casual work for extra money or those looking to attend events but would like to work. These individuals could be people working part-time, students or full-time workers looking to attend particular events without paying for the tickets reducing thier costs of attending. 
+The target audience is organisers of any events such as sporting events, music festivals and food festivals. These event organisers will need temporary staff such as security staff, wait staff and bartenders. The target audience of workers are individuals that need casual work for extra money or those looking to attend events but would like to work. These individuals could be people working part-time, students or full-time workers looking to attend particular events without paying for the tickets reducing their costs of attending. 
 
 ###### Tech Stack 
 * Ruby on Rails 
@@ -115,7 +115,7 @@ My application is built using Ruby on Rails this is a framework written in the R
 
 For example, in Ruby on Rails, ActiveRecord is layer of abstraction from SQL that makes the code more readable when talking to the database (in this case to PostgreSQL which is also written in C). 
 
-Another high-level abstraction in the appliccation is the rails helper when creating forms. Writing a form in HTML can take a lot of code but the layer of abstraction that Rails provides makes it mush shorter and simpler to build, Action View Form Helper. 
+Another high-level abstraction in the application is the rails helper when creating forms. Writing a form in HTML can take a lot of code but the layer of abstraction that Rails provides makes it mush shorter and simpler to build, Action View Form Helper. 
 
 RESTful Routes are another high-level abstraction that is provided in Rails. Routes allow the HTTP requests to be easily implemented. The ```routes.rb``` file will allow the correct HTTP request to be mapped to the controller and provide the next URL to be displayed. 
 
@@ -274,4 +274,4 @@ I used Trello to track the progress of my web application. I broke the large pro
 
 ![trello](docs/trello-7.png)
 
-
+I managed to meet all the requirements for the MVP for Tender but there other features I would like to add moving forward. Due to time constraints the rating feature will be added at a later date. All of the main functionality is working and bugs have been fixed. Tracking my application in Trello meant all tasks could be logged and addressed in a timely manner. 

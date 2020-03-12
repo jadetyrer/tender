@@ -11,15 +11,15 @@ class Event < ApplicationRecord
   validates :date_to, presence: :true
 
   def pending_applications
-    applications.where(status: "pending")
+    applications.where(status: "pending").includes(:worker)
   end
 
   def accepted_applications
-    applications.where(status: "accepted")
+    applications.where(status: "accepted").includes(:worker)
   end
 
   def rejected_applications
-    applications.where(status: "rejected")
+    applications.where(status: "rejected").includes(:worker)
   end
 
   def self.search(search)
