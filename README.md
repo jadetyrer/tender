@@ -154,7 +154,7 @@ These controllers contain the CRUD (create, read, update and delete) methods and
 
 ###### Routes
 
-RESTful Routes are a high-level compenent that is provided in Rails. The Rails router allow the HTTP requests to be easily handled via the controller. The ```routes.rb``` file will allow the correct HTTP request to be mapped to the controller and provide the next URL to be displayed via the view. The routes deal with the get, put, post, patch and delete requests depending on the methods defined in the controller. The routes in Ruby can handle custom routes to help with the readability and capability of the application. The routes defined in my web application are as below: 
+RESTful Routes are a high-level component that is provided in Rails. The Rails router allow the HTTP requests to be easily handled via the controller. The ```routes.rb``` file will allow the correct HTTP request to be mapped to the controller and provide the next URL to be displayed via the view. The routes deal with the get, put, post, patch and delete requests depending on the methods defined in the controller. The routes in Ruby can handle custom routes to help with the readability and capability of the application. The routes defined in my web application are as below: 
 ```ruby 
 Rails.application.routes.draw do
   devise_for :workers 
@@ -355,8 +355,3 @@ I used Trello to track the progress of my web application. I broke the large pro
 ![trello](docs/trello-8.png)
 
 I managed to meet all the requirements for the MVP for Tender but there other features I would like to add moving forward. Due to time constraints the rating feature will be added at a later date. All of the main functionality is working and bugs have been fixed. Tracking my application in Trello meant all tasks could be logged and addressed in a timely manner. 
-
-slides 
-why the application exists and screenshots
-
-
