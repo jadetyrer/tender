@@ -6,7 +6,7 @@ class WorkerProfilesController < ApplicationController
   
   def create
     @worker_profile = current_worker.create_worker_profile(worker_profile_params)
-    redirect_to worker_profile_path(current_worker)
+    redirect_to worker_dashboard_path
   end
 
   def edit
@@ -34,8 +34,11 @@ class WorkerProfilesController < ApplicationController
   end
 
   def set_worker_profile
-    @worker_profile = WorkerProfile.find(params[:id]) if params[:id] 
+    if user_signed_in?
+    @worker_profile = WorkerProfile.find(params[:id])
+    else
     @worker_profile ||= current_worker.worker_profile || current_worker.build_worker_profile
+    end 
   end
 
 end
