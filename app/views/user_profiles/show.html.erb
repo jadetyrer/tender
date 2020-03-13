@@ -9,9 +9,9 @@
             <div class="info">
               <p class="event-name"><%= event.name %></p>
               <p><b>Dates: </b><%= event.date_from %> to <%= event.date_to %></p>
-              <p><b>Location: </b><%= event.location %></p>
+              <p><b>Location: </b><%= event.location %></p><br>
               <p><b>Positions: </b><% event.positions.each do |position| %>
-                <b><p><%= position.position_type %></p></b>
+                <p><%= position.position_type %></p>
                 <div class="position-links-dashboard">
                   <%= button_to 'Edit', edit_event_position_path(event, position), method: :get %>
                   <%= button_to 'Delete', event_position_path(event, position), method: :delete, data: { confirm: 'Are you sure you want to delete the position?' }  %>

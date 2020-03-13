@@ -67,12 +67,6 @@ class PositionsController < ApplicationController
     redirect_to worker_dashboard_path
   end
 
-
-
-  # current_user.events.each do |event|
-  #   event.pending_applications
-  # end
-
  
   private
     def position_params
