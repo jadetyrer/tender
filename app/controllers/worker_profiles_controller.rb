@@ -10,12 +10,16 @@ class WorkerProfilesController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
-    @worker_profile.update(worker_profile_params)
-
+    if(@worker_profile.update(worker_profile_params))
     redirect_to @worker_profile
+    else 
+      render :edit
+    end 
+
   end 
 
 
