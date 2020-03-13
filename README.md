@@ -3,7 +3,7 @@
 #### R7 Problem trying to solve 
 Tender is a marketplace for organisers of events to find event staff and for people to find work at events they would like to attend. When planning an event organisers do not employ people all year round and may find it difficult to find staff for the short period of the event. Tender is a web application that can help solve this issue. Event organisers can log on and create events and add job positions for these events. Employees can log on and apply for the jobs at the events they wish to attend. Tender creates a platform for ease and efficiency of finding employees for events and finding temporary work at events. 
 
-Tender will also have a rating system for both the employee and the employer this will help to avoid the issues of workers or employers not delivering what was promised. Many event staff do not turn up for all shifts and the rating system will act as a deterrent for this and provide information to the organisers which staff will do the best job. The profile and the CV of the worker are available for the employer when the worker applies for the position and the employer can accept of reject the application based on these and the star rating from pervious events worked. 
+Tender will also have a rating system for both the employee and the employer this will help to avoid the issues of workers or employers not delivering what was promised. Many event staff do not turn up for all shifts and the rating system will act as a deterrent for this and provide information to the organisers which staff will do the best job. The profile and the CV of the worker are available for the employer when the worker applies for the position and the employer can accept of reject the application based on these and the star rating from previous events worked. 
 
 #### R8 Why the problem needs solving
 It is difficult for event organisers to find reliable and hard-working staff for events. This is the reason event organisers need a platform like Tender to help them find reliable staff easily. Tender will create a hassle-free process for both parties to apply for and advertise event work. Event organisers could find staff more easily and with less cost to them via this web application. 
@@ -45,7 +45,14 @@ Tenders routes:
 
 
 ###### Screenshots 
-Add after changing database
+![screenshot](docs/screenshot-1.png)
+![screenshot](docs/screenshot-2.png)
+![screenshot](docs/screenshot-3.png)
+![screenshot](docs/screenshot-4.png)
+![screenshot](docs/screenshot-5.png)
+![screenshot](docs/screenshot-6.png)
+![screenshot](docs/screenshot-7.png)
+![screenshot](docs/screenshot-8.png)
 
 ###### Target Audience
 The target audience is organisers of any events such as sporting events, music festivals and food festivals. These event organisers will need temporary staff such as security staff, wait staff and bartenders. The target audience of workers are individuals that need casual work for extra money or those looking to attend events but would like to work. These individuals could be people working part-time, students or full-time workers looking to attend particular events without paying for the tickets reducing their costs of attending. 
@@ -354,4 +361,4 @@ I used Trello to track the progress of my web application. I broke the large pro
 
 ![trello](docs/trello-8.png)
 
-I managed to meet all the requirements for the MVP for Tender but there other features I would like to add moving forward. Due to time constraints the rating feature will be added at a later date. All of the main functionality is working and bugs have been fixed. Tracking my application in Trello meant all tasks could be logged and addressed in a timely manner. 
+I managed to meet all the requirements for the MVP for Tender but there other features I would like to add moving forward. Due to time constraints the rating feature will be added at a later date. All of the main functionality is working and bugs have been fixed. Tracking my application in Trello meant all tasks could be logged and addressed in a timely manner. I would like to add more features in the future to improve the usability, for example, the star rating feature. 
