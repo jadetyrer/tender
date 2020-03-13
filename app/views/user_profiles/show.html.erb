@@ -42,8 +42,8 @@
         <p><b>Event: </b><%= event.name %></p>
         <p><b>Position: </b><%= application.position.position_type %></p>
         <p><b>Applicant Name:</b> <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
-        <p class="download-button"><%= button_to 'Download CV', download_resume_path(application.worker), method: :get %></p>
-        <p class="view-profile-button"><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
+        <p class="download-button"><%= button_to 'Download CV', download_resume_path(application.worker.worker_profile), method: :get %></p>
+        <p class="view-profile-button"><%= button_to 'View Profile', worker_path(application.worker.worker_profile), method: :get %>
         <div class="app-buttons">
           <p><%= button_to 'Accept', accept_event_position_path(event, application), method: :patch %>
           <p><%= button_to 'Reject', reject_event_position_path(event, application), method: :patch %>
@@ -61,8 +61,8 @@
           <p><b>Position: </b><%= application.position.position_type %></p>
           <p><b>Applicant Name: </b><%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
           <div class="app-buttons">
-            <p><%= button_to 'Download CV', download_resume_path(application.worker), method: :get %></p>
-            <p><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
+            <p><%= button_to 'Download CV', download_resume_path(application.worker.worker_profile), method: :get %></p>
+            <p><%= button_to 'View Profile', worker_path(application.worker.worker_profile), method: :get %>
           </div>
           <p>Status: Accepted</p>
         </div>
@@ -77,8 +77,8 @@
           <p>Position: <%= application.position.position_type %></p>
           <p>Applicant Name: <%= application.worker.worker_profile.first_name %> <%= application.worker.worker_profile.last_name %></p>
           <div class="app-buttons">
-            <p><%= button_to 'Download CV', download_resume_path(application.worker), method: :get %></p>
-            <p><%= button_to 'View Profile', worker_path(application.worker), method: :get %>
+            <p><%= button_to 'Download CV', download_resume_path(application.worker.worker_profile), method: :get %></p>
+            <p><%= button_to 'View Profile', worker_path(application.worker.worker_profile), method: :get %>
           </div>
           <p>Status: Rejected</p>
         </div>

@@ -11,10 +11,10 @@
     </p>
     <div class="worker-links">
       <p>
-      <%= button_to 'Download CV', download_resume_path, method: :get %> 
+      <%= button_to 'Download CV', download_resume_path(@worker.worker_profile), method: :get %> 
       </p>
       <p>
-      <%= button_to 'Download Document', download_document_path, method: :get %> 
+      <%= button_to 'Download Document', download_document_path(@worker.worker_profile), method: :get %> 
       </p>
     </div>
     <div class="back-button-profile">

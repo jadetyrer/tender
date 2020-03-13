@@ -14,11 +14,8 @@ class WorkerProfilesController < ApplicationController
   end
 
   def update
-    if(@worker_profile.update(worker_profile_params))
-    redirect_to @worker_profile
-    else 
-      render :edit
-    end 
+    @worker_profile.update!(worker_profile_params)
+    redirect_to worker_dashboard_path
 
   end 
 
@@ -37,9 +34,8 @@ class WorkerProfilesController < ApplicationController
   end
 
   def set_worker_profile
-    @worker = Worker.find(params[:id]) if params[:id] 
-    @worker ||= current_worker
-    @worker_profile = @worker.worker_profile || @worker.build_worker_profile
+    @worker_profile = WorkerProfile.find(params[:id]) if params[:id] 
+    @worker_profile ||= current_worker.worker_profile 
   end
 
 end
