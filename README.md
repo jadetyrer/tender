@@ -14,6 +14,13 @@ Tender cuts out the need for a third party to find staff reducing the costs of t
 #### R9 Link to deployed app
 https://radiant-wildwood-32516.herokuapp.com/
 
+**Test employer:**
+email: hirer@events.com
+password: 111111
+**Test employee:**
+email: george@barber.com
+password: 111111
+
 #### R10 Link to Github Repository 
 
 https://github.com/jadetyrer/tender
