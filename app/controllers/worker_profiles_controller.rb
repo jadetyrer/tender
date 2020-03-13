@@ -6,7 +6,7 @@ class WorkerProfilesController < ApplicationController
   
   def create
     @worker_profile = current_worker.create_worker_profile(worker_profile_params)
-    redirect_to edit_worker_profile_path(current_worker)
+    redirect_to worker_profile_path(current_worker)
   end
 
   def edit
